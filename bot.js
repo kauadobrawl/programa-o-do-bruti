@@ -7,7 +7,7 @@ client.prefix = config.prefix;
 client.on("message", async message => {
     if(message.author.bot) return;
     if(message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)){
-        return message.reply("Olá meu prefixo é `;`")}
+        return message.reply("Olá meu prefixo é `-`")}
     if(!message.content.startsWith(config.prefix)) return;
 
 let args = message.content.split(" ").slice(1);
@@ -26,21 +26,19 @@ client.on("ready", () => {
     console.log(`Bot foi iniciado com, ${client.users.size} usuários, ${client.guilds.size} servidores, ${client.channels.size} canais.`)
 
     let status = [
-        {name:`me adicione em um servidor entrando em "bruti-bot.glitch.me"`},
-        {name:`Estou em ${client.guilds.size} servidores`},
-        {name:`estou em desenvolvimento`},
-        {name:`aleluia uma hospedagem😀😁`},
-        {name:`o kauã ta cansado só de ter ficado um tempão programando isso:)`},
-        {name:`${client.users.size} pessoas!`, type: 'LISTENING'}
-        ]
-        function setStatus(){ 
-            let randomStatus = status[Math.floor(Math.random()*status.length)]
-            client.user.setPresence({game: randomStatus})
-        }
-        setStatus();
-        setInterval(() => setStatus(),5000)
-
-
+      {name:`me adicione em um servidor entrando em "bruti-bot.glitch.me"`},
+      {name:`Estou em ${client.guilds.size} servidores`},
+      {name:`estou em desenvolvimento`},
+      {name:`aleluia uma hospedagem😀😁`},
+      {name:`o kauã ta cansado só de ter ficado um tempão programando isso:)`},
+      {name:`${client.users.size} pessoas!`, type: 'LISTENING'}
+      ]
+      function setStatus(){ 
+          let randomStatus = status[Math.floor(Math.random()*status.length)]
+          client.user.setPresence({game: randomStatus})
+      }
+      setStatus();
+      setInterval(() => setStatus(),5000)
 
 })
 
